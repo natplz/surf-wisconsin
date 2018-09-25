@@ -1,0 +1,294 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --mainImgWidth:600px;
+  --mainImgHeight:400px;
+  --sideImgWidth:300px;
+  --sideImgHeight:200px;
+  --sideImgHeightOffset:100px;
+}
+
+
+
+body {
+  background-color: #1a4366;
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  margin:0;
+  padding:0;
+}
+
+.navbar-brand {
+  color:white;
+  font-weight:600;
+}
+
+.nav-item {
+  width:100px;
+}
+
+.navbar-toggler {
+  color:red;
+}
+
+#toggler {
+  color:red;
+
+}
+
+.navbar-toggler-icon {
+  color:black;
+  opacity:1;
+  display:block;
+}
+
+#mission {
+  background-image: linear-gradient(223deg, #1a4366, #0b2036);
+}
+
+.jumbotron {
+  text-align:center;
+  background:none;
+  /*margin: 0 50px 0 50px;*/
+}
+
+.jumbotron h1 {
+  letter-spacing: -3.2px;
+  font-weight: 100;
+  font-size: 80px;
+  color:#F7F7F7;
+}
+
+.jumboTop p {
+  color:#9d9e9c;
+  opacity:0.9;
+}
+ 
+
+#line {
+  position:absolute;
+  right:68px;
+  top:50px;
+  width:340px;
+  height:0px;
+  opacity:0.2;
+  border-top:1px solid #F7F7F7;
+}
+
+#fiveColContainer{
+  margin-top:-50px;
+  text-align:center;
+}
+#fiveColContainer .jumbotron {
+  margin:-27px;
+}
+#fiveColContainer h2{
+  font-weight: 100;
+  color:#3789B3;
+}
+#fiveColContainer p{
+  font-size:15px;
+}
+
+
+/*
+#img1old {
+  height:200px;
+  width:300px;
+  margin-top:100px;
+  float:left;
+  margin-right:-200px;
+}
+
+#img2old {
+  height:200px;
+  width:300px;
+  margin-top:100px;
+  float:right;
+  margin-left:-200px;
+}
+
+#imgBigold {
+  position:relative;
+  margin:auto;
+  display:block;
+  height:400px;
+  width:600px;
+}
+*/
+
+
+.rhombus {
+  width:60px;
+  height:60px;
+  transform: rotate(45deg);
+  position:relative;
+  margin:0 auto -60px auto;
+  display:block;
+  z-index: 10;
+  opacity: 0.36;
+  background-color: #081f38;
+  border: solid 1px rgba(255, 255, 255, 0.2);
+}
+
+#rhomb1 {
+  top:170px;
+  right:450px;
+}
+
+#rhomb2 {
+  top:170px;
+  left:450px;
+}
+
+/*.imgHolder {
+  background-color:red;
+}*/
+
+#img1 {
+  height:200px;
+  width:300px;
+  position:relative;
+  margin:100px auto -300px auto;
+  display:block;
+  right:300px;
+  z-index: 2;
+}
+
+#img2 {
+  height:200px;
+  width:300px;
+  position:relative;
+  margin:100px auto -300px auto;
+  display:block;
+  left:300px;
+  z-index: 2;
+}
+
+#imgBig {
+  position:relative;
+  margin:auto;
+  display:block;
+  height:400px;
+  width:600px;
+  z-index: 10;
+}
+
+
+
+/*#img2absol {
+  position:absolute;
+  margin:auto;
+  top:500px;
+  left:0;
+  right:0;
+  bottom:0;
+  height:400px;
+  width:600px;
+}*/
+
+
+
+.captionCol {
+  margin:10px 0 100px 0;
+  text-align: center;
+}
+
+#caption {
+  color:#9d9e9c;
+  /*opacity:0.9;
+  font-size:18px;*/
+}
+
+#results {
+  height: 500px;
+  background-color: #061626;
+  margin:0;
+  padding:0;
+  
+}
+
+.center-cropped {
+  object-fit:cover;
+  object-position: center; /* Center the image within the element */
+  height: 600px;
+}
+
+.overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:block;
+  background: rgba(26,67,102,0.8);
+}
+
+#carouselResults .jumbotron {
+  margin:50px 100px 0 100px;
+  text-align: left;
+  background:none;
+}
+
+#carouselResults .blueText {
+  color:#3789B3;
+  letter-spacing: 2px;
+  font-weight:400;
+}
+
+#carouselResults h2{
+  font-weight: 100;
+  color:white;
+}
+
+#carouselResults p{
+  font-weight: 100;
+  color:white;
+}
+
+.btn.outline {
+  background: none;
+  padding: 12px 30px;
+  border-radius:50px;
+  border:1px solid white;
+  font-weight: 100;
+  color:white;  
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+	color: #3789B3;
+	border-color: #3789B3;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+	border-color: #3789B3;
+	color: #3789B3;
+	box-shadow: none;
+}
+
+
+#news {
+  height: 1000px;
+  background-color: white;
+}
+
+
+
+
+/*----Media queries------*/
+/* Smartphones (portrait) */
+@media screen and (max-width:576px) {
+  #carouselResults .jumbotron {
+    margin:0;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width:768px) {
+  #carouselResults .jumbotron {
+    margin:25px 50px 0 50px;
+  }
+}
+
+
+
