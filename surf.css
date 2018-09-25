@@ -19,6 +19,19 @@ body {
   padding:0;
 }
 
+a:hover{
+  color:white;
+  text-decoration:none;
+}
+
+#mission {
+  background-image: linear-gradient(223deg, #1a4366, #0b2036);
+}
+
+.navbar {
+  padding-top:20px;
+}
+
 .navbar-brand {
   color:white;
   font-weight:600;
@@ -43,8 +56,14 @@ body {
   display:block;
 }
 
-#mission {
-  background-image: linear-gradient(223deg, #1a4366, #0b2036);
+#line {
+  position:absolute;
+  right:68px;
+  top:57px;
+  width:340px;
+  height:0px;
+  opacity:0.2;
+  border-top:1px solid #F7F7F7;
 }
 
 .jumbotron {
@@ -66,15 +85,7 @@ body {
 }
  
 
-#line {
-  position:absolute;
-  right:68px;
-  top:50px;
-  width:340px;
-  height:0px;
-  opacity:0.2;
-  border-top:1px solid #F7F7F7;
-}
+
 
 #fiveColContainer{
   margin-top:-50px;
@@ -127,26 +138,33 @@ body {
   margin:0 auto -60px auto;
   display:block;
   z-index: 10;
-  opacity: 0.36;
+  opacity: 0.6;
   background-color: #081f38;
   border: solid 1px rgba(255, 255, 255, 0.2);
 }
-
 #rhomb1 {
   top:170px;
   right:450px;
 }
-
 #rhomb2 {
   top:170px;
   left:450px;
 }
 
-/*.imgHolder {
-  background-color:red;
-}*/
+.arrowLeft {
+  transform:rotate(-45deg);
+  position:relative;
+  top:18px;
+  left:17px;
+}
+.arrowRight {
+  transform:rotate(-45deg);
+  position:relative;
+  top:17px;
+  left:20px;
+}
 
-#img1 {
+#imgHolder1 {
   height:200px;
   width:300px;
   position:relative;
@@ -156,7 +174,13 @@ body {
   z-index: 2;
 }
 
-#img2 {
+#sideImg1 {
+  height:200px;
+  width:300px;
+}
+
+
+#imgHolder2 {
   height:200px;
   width:300px;
   position:relative;
@@ -166,6 +190,11 @@ body {
   z-index: 2;
 }
 
+#sideImg2 {
+  height:200px;
+  width:300px;
+}
+
 #imgBig {
   position:relative;
   margin:auto;
@@ -173,20 +202,9 @@ body {
   height:400px;
   width:600px;
   z-index: 10;
+  box-shadow:1px 1px 3px 2px #322D24;
 }
 
-
-
-/*#img2absol {
-  position:absolute;
-  margin:auto;
-  top:500px;
-  left:0;
-  right:0;
-  bottom:0;
-  height:400px;
-  width:600px;
-}*/
 
 
 
@@ -201,8 +219,8 @@ body {
   font-size:18px;*/
 }
 
-#results {
-  height: 500px;
+#mission {
+
   background-color: #061626;
   margin:0;
   padding:0;
@@ -225,24 +243,34 @@ body {
   background: rgba(26,67,102,0.8);
 }
 
-#carouselResults .jumbotron {
+.overlayBright {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:block;
+  background: rgba(26,67,102,0.5);
+}
+
+#carouselMission .jumbotron {
   margin:50px 100px 0 100px;
   text-align: left;
   background:none;
 }
 
-#carouselResults .blueText {
+#carouselMission .blueText {
   color:#3789B3;
   letter-spacing: 2px;
   font-weight:400;
 }
 
-#carouselResults h2{
+#carouselMission h2{
   font-weight: 100;
   color:white;
 }
 
-#carouselResults p{
+#carouselMission p{
   font-weight: 100;
   color:white;
 }
@@ -268,8 +296,106 @@ body {
 
 
 #news {
-  height: 1000px;
+  height: 500px;
   background-color: white;
+}
+
+.titleHolder {
+  position:relative;
+  margin:auto;
+  text-align:center;
+  padding-top:50px;
+}
+
+#news .titleHolder {
+  
+}
+
+.titleHolder h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+
+}
+
+#team {
+  background-image: linear-gradient(241deg, #1a4366, #0b2036);
+}
+
+#team .titleHolder {
+  color:white;
+}
+
+
+#team .container {
+  padding:50px 0 70px 0;
+}
+
+.portrait {
+  display:block;
+  margin:auto;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+}
+
+#portrait1 {
+  background-image: url(Resized/4_woman_small.jpg);
+  background-position:62% 25%;
+}
+
+#portrait2 {
+  background-image: url(Resized/4_man2_small.png);
+  background-position:53% 25%;
+}
+
+#portrait3 {
+  background-image: url(Resized/4_man3_small.jpg);
+  background-position:53% 23%;
+}
+
+#portrait4 {
+  background-image: url(Resized/4_man1_small.png);
+  background-position:60% 25%;
+}
+
+.name {
+  margin-top:20px;
+  text-align:center;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color:white;
+  opacity:0.9;
+}
+
+.subcaption {
+  text-align:center;
+  font-size:14px;
+  color:#9d9e9c;
+  
+}
+
+#footer {
+  height: 120px;
+  background-color: #101c33;
+}
+
+.footerBrand {
+  color:white;
+  font-weight:600;
+  font-size:17px;
+  letter-spacing:1.5px;
+  position:relative;
+  top:45px;
+  left:20px;
+}
+
+.footerText {
+  color:#9d9e9c;
+  font-size:10px;
+  position:relative;
+  top:40px;
 }
 
 
@@ -278,14 +404,14 @@ body {
 /*----Media queries------*/
 /* Smartphones (portrait) */
 @media screen and (max-width:576px) {
-  #carouselResults .jumbotron {
+  #carouselMission .jumbotron {
     margin:0;
   }
 }
 
 /* Tablets */
 @media screen and (max-width:768px) {
-  #carouselResults .jumbotron {
+  #carouselMission .jumbotron {
     margin:25px 50px 0 50px;
   }
 }
