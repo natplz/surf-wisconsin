@@ -296,26 +296,50 @@ a:hover{
 
 
 #news {
-  height: 500px;
   background-color: white;
+  padding-bottom:100px;
 }
-
 .titleHolder {
   position:relative;
   margin:auto;
   text-align:center;
   padding-top:50px;
+  padding-bottom:50px;
 }
-
-#news .titleHolder {
-  
-}
-
 .titleHolder h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 100;
-
 }
+#news .heading {
+  font-size:16px;
+  font-weight:400;
+  text-transform:uppercase;
+}
+.eventHeading {
+  font-size:12px;
+  text-transform:uppercase;
+}
+.day {
+  text-align:center;
+  font-size:20px;
+  font-weight:400;
+  margin:0;
+}
+.month {
+  font-size:12px;
+  text-align:center;
+  text-transform:uppercase;
+}
+#news h3 {
+  font-size:19px;
+  font-weight:800px;
+}
+
+
+
+
+
+
 
 #team {
   background-image: linear-gradient(241deg, #1a4366, #0b2036);
@@ -325,9 +349,26 @@ a:hover{
   color:white;
 }
 
-
 #team .container {
   padding:50px 0 70px 0;
+}
+
+
+.portraitSmall {
+  display:block;
+  margin:10px auto 0 auto;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+}
+
+#portraitSmall1 {
+  background-image: url(Resized/3_portrait_tiny.jpg);
+  background-position:65% 17%;
+}
+#portraitSmall2 {
+  background-image: url(Resized/3_woman_sunglasses_tiny.jpg);
+  background-position:55% 40%;
 }
 
 .portrait {
@@ -337,25 +378,21 @@ a:hover{
   height:200px;
   border-radius:50%;
 }
-
 #portrait1 {
-  background-image: url(Resized/4_woman_small.jpg);
-  background-position:62% 25%;
+  background-image: url(Resized/4_woman_sunglasses_small.jpg);
+  background-position:60% 40%;
 }
-
 #portrait2 {
   background-image: url(Resized/4_man2_small.png);
   background-position:53% 25%;
 }
-
 #portrait3 {
   background-image: url(Resized/4_man3_small.jpg);
   background-position:53% 23%;
 }
-
 #portrait4 {
-  background-image: url(Resized/4_man1_small.png);
-  background-position:60% 25%;
+  background-image: url(Resized/4_portrait_small.jpg);
+  background-position:65% 17%;
 }
 
 .name {
@@ -402,17 +439,19 @@ a:hover{
 
 
 /*----Media queries------*/
-/* Smartphones (portrait) */
-@media screen and (max-width:576px) {
-  #carouselMission .jumbotron {
-    margin:0;
-  }
-}
-
 /* Tablets */
 @media screen and (max-width:768px) {
   #carouselMission .jumbotron {
     margin:25px 50px 0 50px;
+  }
+  #upcomingEvents {
+    margin-top:50px;
+  }
+}
+/* Smartphones (portrait) */
+@media screen and (max-width:576px) {
+  #carouselMission .jumbotron {
+    margin:0;
   }
 }
 
