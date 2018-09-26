@@ -98,21 +98,17 @@ Dynamically procrastinate B2C users after installed base benefits. </p>
     
     <!-- Image Carousel -->
     <div id="rhomb1" class="rhombus">
-      <a href="#">
-        <span class="carousel-control-prev-icon arrowLeft"></span>
-      </a>
+      <span class="carousel-control-prev-icon arrowLeft"></span>
     </div>
     <div id="imgHolder1">
-      <img src="surf_2.jpg" id="sideImg1">
+      <img src="surf_0.jpg" id="sideImgLeft">
       <div class="overlayBright"></div>
     </div>
     <div id="rhomb2" class="rhombus">
-      <a href="#">
-        <span class="carousel-control-next-icon arrowRight"></span>
-      </a>
+      <span class="carousel-control-next-icon arrowRight"></span>
     </div>
     <div id="imgHolder2">
-      <img src="surf_3.jpg" id="sideImg2">
+      <img src="surf_2.jpg" id="sideImgRight">
       <div class="overlayBright"></div>
     </div>
     <img src="surf_1.jpg" id="imgBig">
@@ -380,16 +376,117 @@ Dynamically procrastinate B2C users after installed base benefits. </p>
   </div>
 
     
-  </body>
-  
+    
+    
   <!-- Javascript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     
+    
+  <!-- Custom JS -->
   <script type="text/javascript">
+    var imgs = ["Originals/1_sunset.jpg", "Originals/1_man_surfing_darkgreen.jpg", "Originals/1_man_surfing_teal.jpg", "Originals/1_man_swimming.jpg", "Originals/1_man_surfing_sideways.jpg"];
+    var middlePic = 2;
+    //Rotate left
+    $("#rhomb1").click( function() {
+      
+      //Don't rotate if we're at the end of the carousel
+      if (middlePic < (imgs.length-1)) {
+        
+        //Send middle image to left
+        
+        $( "#imgBig" )
+          .css("z-index", 2)
+          .css("box-shadow", "none")
+          .animate({
+            left: "-=300",
+            top: "+=100",
+            height: "200px",
+            width: "300px",
+          }, 500).promise().done( function() { 
+            //At end of animation, remove all added style values
+            $(this).removeAttr("style"); 
+        });
+        
+        
+        //Send right image to middle
+        console.log("Moving "+$("#sideImgRight").attr("src")+" right");
+        $( "#sideImgRight" )
+          .css("z-index", 10)
+          .css("box-shadow", "1px 1px 3px 2px #322D24")
+          .animate({
+            left: "-=450",
+            top: "-=100",
+            height: "400px",
+            width: "600px",
+          }, 500, function() { 
+            //At end of animation, remove all added style values
+            $(this).removeAttr("style"); 
+        });
+        
+        //Swap out pictures at end of animation
+        setTimeout(function() {
+          $("#sideImgLeft").attr("src", imgs[middlePic] );
+          $("#imgBig").attr("src", imgs[middlePic+1] );
+          middlePic++;
+          if (middlePic < (imgs.length-1)) {
+            $("#sideImgRight").attr("src", imgs[middlePic+1]);
+          } else {
+            $("#sideImgRight").attr("src", "transparent.png");
+          }
+        },500);
+          
+        //If we're at the end of the carousel, don't populate right image
+        
+        
+      }
+      
+      
+      console.log(middlePic);
+      
+    });
+      
+      
+      /*
+      //Stop rotating at the end of the carousel
+      if (middlePic < (imgs.length-1)) {
+        $("#sideImgLeft").attr("src", imgs[middlePic] );
+        $("#imgBig").attr("src", imgs[middlePic+1] );
+        middlePic++;
+      }
+      if (middlePic < (imgs.length-1)) {
+        $("#sideImgRight").attr("src", imgs[middlePic+1]);
+      } else {
+        $("#sideImgRight").attr("src", "transparent.png");
+      }
+      
+    });
+    */
+    
+    //Rotate right
+    $("#rhomb2").click( function() {
+      
+      //Stop rotating at the end of the carousel
+      if (middlePic > 0) {
+        $("#imgBig").attr("src", imgs[middlePic-1] );
+        $("#sideImgRight").attr("src", imgs[middlePic] );
+        middlePic--;
+      }
+      if (middlePic > 0) {
+        $("#sideImgLeft").attr("src", imgs[middlePic-1]);
+      } else {
+        $("#sideImgLeft").attr("src", "transparent.png");
+      }
+      console.log(middlePic);
+    });
   </script>
+  
+    
+  </body>
+  
+  
 
 
 </html>

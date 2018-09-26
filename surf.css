@@ -1,13 +1,6 @@
 * {
   box-sizing: border-box;
 }
-:root {
-  --mainImgWidth:600px;
-  --mainImgHeight:400px;
-  --sideImgWidth:300px;
-  --sideImgHeight:200px;
-  --sideImgHeightOffset:100px;
-}
 
 
 
@@ -174,7 +167,7 @@ a:hover{
   z-index: 2;
 }
 
-#sideImg1 {
+#sideImgLeft {
   height:200px;
   width:300px;
 }
@@ -190,9 +183,10 @@ a:hover{
   z-index: 2;
 }
 
-#sideImg2 {
+#sideImgRight {
   height:200px;
   width:300px;
+  position:relative;
 }
 
 #imgBig {
