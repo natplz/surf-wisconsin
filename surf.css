@@ -164,14 +164,22 @@ a:hover{
   margin:100px auto -300px auto;
   display:block;
   right:300px;
-  z-index: 2;
+}
+
+.sideImg {
+  height:200px;
+  width:300px;
+  position:relative;
 }
 
 #sideImgLeft {
-  height:200px;
-  width:300px;
+  position:relative;
+  z-index: 5;
 }
-
+#sideImgRight {
+  position:relative;
+  z-index: 5;
+}
 
 #imgHolder2 {
   height:200px;
@@ -180,15 +188,19 @@ a:hover{
   margin:100px auto -300px auto;
   display:block;
   left:300px;
-  z-index: 2;
 }
-
-#sideImgRight {
-  height:200px;
-  width:300px;
-  position:relative;
+#imgBack {
+  height:100px;
+  width:150px;
+  position:absolute;
+  display:block;
+  top:475px;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  z-index:2;
 }
-
 #imgBig {
   position:relative;
   margin:auto;
@@ -245,6 +257,7 @@ a:hover{
   height:100%;
   display:block;
   background: rgba(26,67,102,0.5);
+  z-index: 6;
 }
 
 #carouselMission .jumbotron {

@@ -101,17 +101,19 @@ Dynamically procrastinate B2C users after installed base benefits. </p>
       <span class="carousel-control-prev-icon arrowLeft"></span>
     </div>
     <div id="imgHolder1">
-      <img src="surf_0.jpg" id="sideImgLeft">
-      <div class="overlayBright"></div>
+      <img src="surf_0.jpg" class="sideImg" id="sideImgLeft">
+      <div class="overlayBright" id="overlay1"></div>
     </div>
     <div id="rhomb2" class="rhombus">
       <span class="carousel-control-next-icon arrowRight"></span>
     </div>
     <div id="imgHolder2">
-      <img src="surf_2.jpg" id="sideImgRight">
-      <div class="overlayBright"></div>
+      <img src="surf_2.jpg" class="sideImg" id="sideImgRight">
+      <div class="overlayBright" id="overlay2"></div>
     </div>
+    <img src="surf_2.jpg" id="imgBack">
     <img src="surf_1.jpg" id="imgBig">
+    
     
     <div class="row">
       <div class="col captionCol">
@@ -388,64 +390,99 @@ Dynamically procrastinate B2C users after installed base benefits. </p>
   <!-- Custom JS -->
   <script type="text/javascript">
     var imgs = ["Originals/1_sunset.jpg", "Originals/1_man_surfing_darkgreen.jpg", "Originals/1_man_surfing_teal.jpg", "Originals/1_man_swimming.jpg", "Originals/1_man_surfing_sideways.jpg"];
-    var middlePic = 2;
+    var current = 2;
+    var transTime = 500; //Transition time = 500ms
+    
     //Rotate left
     $("#rhomb1").click( function() {
       
       //Don't rotate if we're at the end of the carousel
-      if (middlePic < (imgs.length-1)) {
+      if (current < (imgs.length-1)) {
         
-        //Send middle image to left
-        
+        //Send middle image to left side
         $( "#imgBig" )
-          .css("z-index", 2)
-          .css("box-shadow", "none")
           .animate({
             left: "-=300",
             top: "+=100",
             height: "200px",
             width: "300px",
-          }, 500).promise().done( function() { 
+            marginBottom:"+200px"
+          }, transTime).promise().done( function() { 
             //At end of animation, remove all added style values
-            $(this).removeAttr("style"); 
+            $(this).removeAttr("style");
         });
         
-        
         //Send right image to middle
-        console.log("Moving "+$("#sideImgRight").attr("src")+" right");
         $( "#sideImgRight" )
-          .css("z-index", 10)
-          .css("box-shadow", "1px 1px 3px 2px #322D24")
           .animate({
             left: "-=450",
             top: "-=100",
             height: "400px",
             width: "600px",
-          }, 500, function() { 
+          }, transTime, function() { 
             //At end of animation, remove all added style values
             $(this).removeAttr("style"); 
         });
         
+        //If there's another image in the array, send it to right side
+        if (current < (imgs.length-2)) {
+          $("#imgBack").attr("src", imgs[current+2] );
+          $( "#imgBack" )
+          .animate({
+            left: "+=600",
+            top: "+=35",
+            height: "200px",
+            width: "300px",
+          }, transTime, function() { 
+            //At end of animation, remove all added style values
+            $(this).removeAttr("style"); 
+        });
+        }
+        
+        //Right picture should go "on top" of middle picture halfway thru transition
+        setTimeout(function() {
+          $( "#imgBig" )
+          .css("z-index", 5)
+          .css("box-shadow", "none");
+        }, (transTime/2));
+        setTimeout(function() {
+        $( "#sideImgRight" )
+          .css("z-index", 20)
+          .css("box-shadow", "1px 1px 3px 2px #322D24");
+        }, (transTime/2));
+          
+        //Middle picture should go "on top" of left picture halfway thru transition
+        setTimeout(function() {
+        $( "#sideImgLeft" )
+          .css("z-index", 2);
+        $( "#overlay1" )
+          .css("z-index", 3)
+        }, (transTime/2));
+        
+          
+        //Make right overlay invisible during transition so it doesn't show up on top of things
+        $("#overlay2").css("display", "none");
+        setTimeout(function() {
+          $("#overlay2").css("display", "block");
+        },transTime);
+        
         //Swap out pictures at end of animation
         setTimeout(function() {
-          $("#sideImgLeft").attr("src", imgs[middlePic] );
-          $("#imgBig").attr("src", imgs[middlePic+1] );
-          middlePic++;
-          if (middlePic < (imgs.length-1)) {
-            $("#sideImgRight").attr("src", imgs[middlePic+1]);
+          $("#sideImgLeft").attr("src", imgs[current] );
+          $("#imgBig").attr("src", imgs[current+1] );
+          current++;
+          //If we're at the end of the carousel, don't populate right image
+          if (current < (imgs.length-1)) {
+              $("#sideImgRight").attr("src", imgs[current+1]);
           } else {
-            $("#sideImgRight").attr("src", "transparent.png");
+              $("#sideImgRight").attr("src", "transparent.png");
           }
-        },500);
+        },transTime);
+        
           
-        //If we're at the end of the carousel, don't populate right image
         
         
       }
-      
-      
-      console.log(middlePic);
-      
     });
       
       
@@ -469,17 +506,16 @@ Dynamically procrastinate B2C users after installed base benefits. </p>
     $("#rhomb2").click( function() {
       
       //Stop rotating at the end of the carousel
-      if (middlePic > 0) {
-        $("#imgBig").attr("src", imgs[middlePic-1] );
-        $("#sideImgRight").attr("src", imgs[middlePic] );
-        middlePic--;
+      if (current > 0) {
+        $("#imgBig").attr("src", imgs[current-1] );
+        $("#sideImgRight").attr("src", imgs[current] );
+        current--;
       }
-      if (middlePic > 0) {
-        $("#sideImgLeft").attr("src", imgs[middlePic-1]);
+      if (current > 0) {
+        $("#sideImgLeft").attr("src", imgs[current-1]);
       } else {
         $("#sideImgLeft").attr("src", "transparent.png");
       }
-      console.log(middlePic);
     });
   </script>
   
