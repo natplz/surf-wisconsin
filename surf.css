@@ -5,7 +5,7 @@
 
 
 body {
-  background-color: #1a4366;
+  background-color: #101c33;
   font-family: 'Lato', sans-serif;
   font-weight:300;
   margin:0;
@@ -17,7 +17,7 @@ a:hover{
   text-decoration:none;
 }
 
-#mission {
+#results {
   background-image: linear-gradient(223deg, #1a4366, #0b2036);
 }
 
@@ -32,15 +32,6 @@ a:hover{
 
 .nav-item {
   width:100px;
-}
-
-.navbar-toggler {
-  color:red;
-}
-
-#toggler {
-  color:red;
-
 }
 
 .navbar-toggler-icon {
@@ -89,38 +80,13 @@ a:hover{
 }
 #fiveColContainer h2{
   font-weight: 100;
+  font-size:45px;
   color:#3789B3;
 }
 #fiveColContainer p{
   font-size:15px;
 }
 
-
-/*
-#img1old {
-  height:200px;
-  width:300px;
-  margin-top:100px;
-  float:left;
-  margin-right:-200px;
-}
-
-#img2old {
-  height:200px;
-  width:300px;
-  margin-top:100px;
-  float:right;
-  margin-left:-200px;
-}
-
-#imgBigold {
-  position:relative;
-  margin:auto;
-  display:block;
-  height:400px;
-  width:600px;
-}
-*/
 
 
 .rhombus {
@@ -199,7 +165,7 @@ a:hover{
   right:0;
   bottom:0;
   margin:auto;
-  z-index:2;
+  z-index:1;
 }
 #imgBig {
   position:relative;
@@ -226,7 +192,6 @@ a:hover{
 }
 
 #mission {
-
   background-color: #061626;
   margin:0;
   padding:0;
@@ -238,7 +203,14 @@ a:hover{
   object-position: center; /* Center the image within the element */
   height: 600px;
 }
-
+#overlay1{
+  z-index:8;
+  position:absolute;
+}
+#overlay2 {
+  z-index:8;
+  position:absolute;
+}
 .overlay {
   position:absolute;
   top:0;
@@ -257,7 +229,7 @@ a:hover{
   height:100%;
   display:block;
   background: rgba(26,67,102,0.5);
-  z-index: 6;
+  z-index: 8;
 }
 
 #carouselMission .jumbotron {
@@ -360,7 +332,6 @@ a:hover{
   padding:50px 0 70px 0;
 }
 
-
 .portraitSmall {
   display:block;
   margin:10px auto 0 auto;
@@ -446,21 +417,81 @@ a:hover{
 
 
 /*----Media queries------*/
+
+
 /* Tablets */
+@media screen and (max-width:992px) {
+  
+  /*Results*/
+  #imgBack,#imgHolder1,#imgHolder2,.rhombus {
+    display:none;
+  }
+}
+
+/* Landscape phones */
 @media screen and (max-width:768px) {
+  
+  /*Results*/
+  #imgBig {
+    height:initial;
+  }
+  /*Mission*/
   #carouselMission .jumbotron {
     margin:25px 50px 0 50px;
   }
+  /*News*/
   #upcomingEvents {
     margin-top:50px;
   }
 }
-/* Smartphones (portrait) */
+
+/* Portrait phones */
 @media screen and (max-width:576px) {
+  
+  /*Results*/
+  #line {
+    display:none;
+  }
+  /*Mission*/
   #carouselMission .jumbotron {
     margin:0;
   }
+  #footer {
+    height:150px;
+  }
 }
 
-
+/* Smaller phones */
+@media screen and (max-width:430px) {
+  
+  /*Mission*/
+  .center-cropped {
+    height:680px;
+  }
+  /*News*/
+  #recentPosts {
+    margin-left:-10px;
+  }
+  .portraitSmall {
+    width:35px;
+    height:35px;
+  }
+  #portraitSmall1 {
+    background-position:63% 19%;
+  }
+  #portraitSmall2 {
+    background-position:50% 42%;
+  }
+  /*Footer*/
+  #footer {
+    height:190px;
+  }
+  .footerBrand {
+    left:0px;
+    top:40px;
+  }
+  .footerText {
+    top:40px;
+  }
+}
 
