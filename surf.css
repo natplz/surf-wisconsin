@@ -456,8 +456,11 @@ a:hover{
   #carouselMission .jumbotron {
     margin:0;
   }
-  #footer {
-    height:150px;
+  .footerBrand {
+    left:0px;
+  }
+  .footerText {
+    margin-top:10px;
   }
 }
 
@@ -482,7 +485,7 @@ a:hover{
   #portraitSmall2 {
     background-position:50% 42%;
   }
-  /*Footer*/
+  /*Footer
   #footer {
     height:190px;
   }
@@ -492,6 +495,6 @@ a:hover{
   }
   .footerText {
     top:40px;
-  }
+  }*/
 }
 
