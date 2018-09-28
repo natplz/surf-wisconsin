@@ -140,10 +140,12 @@ a:hover{
 
 #sideImgLeft {
   position:relative;
+  display:block;
   z-index: 5;
 }
 #sideImgRight {
   position:relative;
+  display:block;
   z-index: 5;
 }
 
@@ -176,6 +178,29 @@ a:hover{
   z-index: 10;
   box-shadow:1px 1px 3px 2px #322D24;
 }
+
+#sideImgLeftCarrier {
+  display:none;
+  position:relative;
+  z-index: 5;
+}
+
+#sideImgRightCarrier {
+  display:none;
+  position:relative;
+  z-index: 5;
+}
+
+#imgBigCarrier {
+  position:relative;
+  margin:auto;
+  display:none;
+  height:400px;
+  width:600px;
+  z-index: 10;
+  box-shadow:1px 1px 3px 2px #322D24;
+}
+
 
 
 

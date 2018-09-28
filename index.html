@@ -121,17 +121,20 @@
     </div>
     <div id="imgHolder1">
       <img src="" class="sideImg" id="sideImgLeft">
-      <div class="overlayBright" id="overlay1"></div>
+      <img src="" class="sideImg" id="sideImgLeftCarrier">
+      <!--<div class="overlayBright" id="overlay1"></div>-->
     </div>
     <div id="rhomb2" class="rhombus">
       <span class="carousel-control-next-icon arrowRight"></span>
     </div>
     <div id="imgHolder2">
       <img src="" class="sideImg" id="sideImgRight">
-      <div class="overlayBright" id="overlay2"></div>
+      <img src="" class="sideImg" id="sideImgRightCarrier">
+      <!--<div class="overlayBright" id="overlay2"></div>-->
     </div>
     <img src="" id="imgBack">
     <img src="" class="img-fluid" id="imgBig">
+    <img src="Resized/3_gorgeous_beach_small.jpg" id="imgBigCarrier">
     
     
     <div class="row">
@@ -407,195 +410,8 @@
     
     
   <!-- Custom JS -->
-  <script type="text/javascript">
-    var imgs = ["Resized/1_sunset_small.jpg", "Resized/1_man_surfing_darkgreen_small.jpg", "Resized/1_man_surfing_teal_small.jpg", "Resized/1_man_swimming_small.jpg", "Resized/1_man_surfing_sideways_small.jpg"];
-    var current = 2;
-    var transTime = 500; //Transition time = 500ms
+  <script type="text/javascript" src="surf.js"></script>
     
-    //Set default images in image carousel
-    $("#imgBig").attr("src",imgs[current]);
-    $("#sideImgLeft").attr("src",imgs[current-1]);
-    $("#sideImgRight").attr("src",imgs[current+1]);
-    
-    
-    
-    //Rotate left
-    $("#rhomb1").click( function() {
-      
-      //Don't rotate if we're at the end of the carousel
-      if (current < (imgs.length-1)) {
-        
-        //Send middle image to left side
-        $( "#imgBig" )
-          .animate({
-            left: "-=300",
-            top: "+=100",
-            height: "200px",
-            width: "300px",
-            marginBottom:"+200px"
-          }, transTime).promise().done( function() { 
-            //At end of animation, remove all added style values
-            $(this).removeAttr("style");
-        });
-        
-        //Send right image to middle
-        $( "#sideImgRight" )
-          .animate({
-            left: "-=450",
-            top: "-=100",
-            height: "400px",
-            width: "600px",
-          }, transTime, function() { 
-            //At end of animation, remove all added style values
-            $(this).removeAttr("style"); 
-        });
-        
-        //If there's another image in the array, send it to right side
-        if (current < (imgs.length-2)) {
-          $("#imgBack").attr("src", imgs[current+2] );
-          $( "#imgBack" )
-          .animate({
-            left: "+=600",
-            top: "+=35",
-            height: "200px",
-            width: "300px",
-          }, transTime, function() { 
-            //At end of animation, remove all added style values
-            $(this).removeAttr("style"); 
-        });
-        }
-        
-        //Right picture should go "on top" of middle picture halfway thru transition
-        setTimeout(function() {
-          $( "#imgBig" )
-          .css("z-index", 5)
-          .css("box-shadow", "none");
-        $( "#sideImgRight" )
-          .css("z-index", 7)
-          .css("box-shadow", "1px 1px 3px 2px #322D24");
-        }, (transTime/2));
-          
-        //Middle picture should go "on top" of left picture halfway thru transition
-        setTimeout(function() {
-        $( "#sideImgLeft" )
-          .css("z-index", 2);
-        $( "#overlay1" )
-          .css("z-index", 3)
-        }, (transTime/2));
-        
-        //Make right overlay invisible during transition so it doesn't show up on top of things
-        $("#overlay2").css("display", "none");
-        setTimeout(function() {
-          $("#overlay2").css("display", "block");
-        },transTime);
-        
-        //Swap out pictures at end of animation
-        setTimeout(function() {
-          $("#sideImgLeft").attr("src", imgs[current] );
-          $("#imgBig").attr("src", imgs[current+1] );
-          current++;
-          //If we're at the end of the carousel, don't populate right image
-          if (current < (imgs.length-1)) {
-              $("#sideImgRight").attr("src", imgs[current+1]);
-          } else {
-              $("#sideImgRight").attr("src", "transparent.png");
-          }
-        },transTime);
-        
-          
-        
-        
-      }
-    });
-      
-    //Rotate right
-    $("#rhomb2").click( function() {
-      
-      //Don't rotate if we're at the end of the carousel
-      if (current > 0) {
-        
-        //Send middle image to right side
-        $( "#imgBig" )
-          .animate({
-            left: "+=300",
-            top: "+=100",
-            height: "200px",
-            width: "300px",
-            marginBottom:"+200px"
-          }, transTime).promise().done( function() { 
-            //At end of animation, remove all added style values
-            $(this).removeAttr("style");
-        });
-        
-        //Send left image to middle
-        $( "#sideImgLeft" )
-          .animate({
-            left: "+=150",
-            top: "-=100",
-            height: "400px",
-            width: "600px",
-          }, transTime, function() { 
-            //At end of animation, remove all added style values
-            $(this).removeAttr("style"); 
-        });
-        
-        //If there's another image in the array, send it to left side
-        if (current > 1) {
-          $("#imgBack").attr("src", imgs[current-2] );
-          $( "#imgBack" )
-          .animate({
-            left: "-=600",
-            top: "+=20",
-            height: "200px",
-            width: "300px",
-          }, transTime, function() { 
-            //At end of animation, remove all added style values
-            $(this).removeAttr("style"); 
-        });
-        }
-        
-        //Left picture should go "on top" of middle picture halfway thru transition
-        setTimeout(function() {
-          $( "#imgBig" )
-          .css("z-index", 5)
-          .css("box-shadow", "none");
-        $( "#sideImgLeft" )
-          .css("z-index", 7)
-          .css("box-shadow", "1px 1px 3px 2px #322D24");
-        }, (transTime/2));
-          
-        //Middle picture should go "on top" of right picture halfway thru transition
-        setTimeout(function() {
-        $( "#sideImgRight" )
-          .css("z-index", 2);
-        $( "#overlay2" )
-          .css("z-index", 3)
-        }, (transTime/2));
-        
-        //Make left overlay invisible during transition so it doesn't show up on top of things
-        $("#overlay1").css("display", "none");
-        setTimeout(function() {
-          $("#overlay1").css("display", "block");
-        },transTime);
-        
-        //Swap out pictures at end of animation
-        setTimeout(function() {
-          $("#sideImgRight").attr("src", imgs[current] );
-          $("#imgBig").attr("src", imgs[current-1] );
-          current--;
-          //If we're at the end of the carousel, don't populate left image
-          if (current > 0) {
-              $("#sideImgLeft").attr("src", imgs[current-1]);
-          } else {
-              $("#sideImgLeft").attr("src", "transparent.png");
-          }
-        },transTime);
-        
-          
-        
-        
-      }
-    });
     
     
     
@@ -644,7 +460,6 @@
         $("#sideImgLeft").attr("src", "transparent.png");
       }
     });*/
-  </script>
   
     
   </body>
