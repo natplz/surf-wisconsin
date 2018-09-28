@@ -38,10 +38,9 @@ var imgs = ["Resized/1_sunset_small.jpg", "Resized/1_man_surfing_darkgreen_small
         $( "#imgBigCarrier" )
           .animate({
             left: "-=300",
-            top: "+=100",
             height: "200px",
             width: "300px",
-            marginBottom:"+200px"
+            marginBottom:"+100px"
           }, transTime, function() { 
             //At end of animation, remove all added style values
             $(this).removeAttr("style"); 
@@ -62,17 +61,20 @@ var imgs = ["Resized/1_sunset_small.jpg", "Resized/1_man_surfing_darkgreen_small
         //If there's another image in the array, send it to right side
         if (current < (imgs.length-2)) {
           $("#imgBack").attr("src", imgs[current+2] );
-          $( "#imgBack" )
-          .animate({
-            left: "+=600",
-            top: "-=5",
-            height: "200px",
-            width: "300px",
-          }, transTime, function() { 
-            //At end of animation, remove all added style values
-            $(this).removeAttr("style"); 
-        });
+        } else {
+          $("#imgBack").attr("src", "transparent.png");
         }
+        $( "#imgBack" )
+        .animate({
+          left: "+=300",
+          top: "-=50",
+          height: "200px",
+          width: "300px",
+        }, transTime, function() { 
+          //At end of animation, remove all added style values
+          $(this).removeAttr("style"); 
+        });
+        
         
         //Right picture should go "on top" of middle picture halfway thru transition
         setTimeout(function() {
@@ -154,10 +156,9 @@ var imgs = ["Resized/1_sunset_small.jpg", "Resized/1_man_surfing_darkgreen_small
         $( "#imgBigCarrier" )
           .animate({
             left: "+=300",
-            top: "+=100",
             height: "200px",
             width: "300px",
-            marginBottom:"+200px"
+            marginBottom:"+100px"
           }, transTime).promise().done( function() { 
             //At end of animation, remove all added style values
             $(this).removeAttr("style");
@@ -178,17 +179,20 @@ var imgs = ["Resized/1_sunset_small.jpg", "Resized/1_man_surfing_darkgreen_small
         //If there's another image in the array, send it to left side
         if (current > 1) {
           $("#imgBack").attr("src", imgs[current-2] );
-          $( "#imgBack" )
-          .animate({
-            left: "-=600",
-            top: "-=5",
-            height: "200px",
-            width: "300px",
-          }, transTime, function() { 
-            //At end of animation, remove all added style values
-            $(this).removeAttr("style"); 
-        });
+        } else {
+          $("#imgBack").attr("src", "transparent.png");
         }
+        $( "#imgBack" )
+        .animate({
+          left: "-=300",
+          top: "-=50",
+          height: "200px",
+          width: "300px",
+        }, transTime, function() { 
+          //At end of animation, remove all added style values
+          $(this).removeAttr("style"); 
+        });
+        
         
         //Left picture should go "on top" of middle picture halfway thru transition
         setTimeout(function() {
